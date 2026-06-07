@@ -1,8 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  --mainbgroung: #0D1C2D;
+  --mainyellow: #FFB95F;
+  --lighterbg: #1C2B3C80;
+  --fontcolor:#D4E4FA;
+  --simoncolor:#FFB4AB;
+  --lightergrey:#D0BCFF;
+  --midgrey:#273647;
+   --sidebar-width:  220px;
+  --topbar-height:  60px;
+  --bg-main:        #0b0d1a;
+  --bg-surface:     #111427;
+  --bg-card:        #161929;
+  --bg-hover:       #1e2235;
+  --border:         rgba(255,255,255,0.07);
+  --gold:           #c9a84c;
+  --gold-light:     #e8c97a;
+  --purple:         #D0BCFF33;
+  --text-primary:   #e8eaf6;
+  --text-secondary: #7a82a8;
+  --text-muted:     #4a5280;
+  --danger:         #e05c5c;
+  --success:        #4caf82;
+  --sidebar-width:  220px;
+  --topbar-height:  60px;
 }
 
 @theme inline {
@@ -20,7 +43,80 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--mainbgroung);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.containerall{
+  background: var(--mainbgroung);
+}
+
+
+/* .app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--topbar-height);
+  min-height: calc(100vh - var(--topbar-height));
+  padding: 1.75rem;
+  flex: 1;
+  transition: margin-left 0.3s ease;
+} */
+
+
+/* @media (max-width: 991px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  main { margin-left: 0 !important; width: 100% !important; }
+} */
+
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* MAIN CONTENT */
+
+.dashboard-content {
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  padding: 1.75rem;
+  overflow-y: auto;
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media screen and (max-width: 992px) {
+  .dashboard-content {
+    width: calc(100% - 200px);
+  }
+
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media screen and (max-width: 768px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .dashboard-content {
+    width: 100%;
+    padding: 1rem;
+  }
+    .charts-row{
+        flex-direction: column;
+
+
+  }
 }
