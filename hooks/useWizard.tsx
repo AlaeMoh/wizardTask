@@ -6,7 +6,6 @@ const BASE_URL = "https://wizard-world-api.herokuapp.com";
 async function fetchWizards(search: string): Promise<Wizard[]> {
   const params = new URLSearchParams();
   if (search.trim()) {
-    // Try both firstName and lastName — use firstName param as primary
     params.set("FirstName", search.trim());
   }
 
@@ -32,7 +31,6 @@ export function useWizards(search: string) {
       if (!search.trim()) {
         return fetchWizards("");
       }
-      // Fetch both firstName and lastName matches, merge & dedupe
       const [byFirst, byLast] = await Promise.all([
         fetchWizards(search).catch(() => [] as Wizard[]),
         fetchWizardsByLastName(search).catch(() => [] as Wizard[]),
