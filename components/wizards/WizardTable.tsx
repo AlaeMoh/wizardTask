@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useWizards } from "../../hooks/useWizard";
 import { Wizard, getWizardName } from "../../types/types";
 import WizardDetailModal from "./WizardDetailModal";

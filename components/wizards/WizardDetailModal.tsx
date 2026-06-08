@@ -1,7 +1,7 @@
 "use client";
 import { Wizard } from "../../types/types";
 import { useEffect } from "react";
-import { faFlask, faSyringe } from "@fortawesome/free-solid-svg-icons";
+import { faFlask, faPen, faSyringe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 
@@ -58,13 +58,14 @@ export default function WizardDetailModal({ wizard, onClose }: WizardDetailModal
          <div className="modal-body">
 
           {/* Avatar + Info */}
-          <div className="modal-info-row">
-            <div className="modal-avatar">
+          <div className="modal-info-row ">
+            <div className="modal-avatar " 
+>
                         <Image
-                        src="/logo.jpg"
+                        src="/logo2.jpg"
                         alt="Logo"
-                        width={60}
-                        height={60}
+                        width={192}
+                        height={192}
                         className="logo-img"
                         />
             </div>
@@ -73,11 +74,11 @@ export default function WizardDetailModal({ wizard, onClose }: WizardDetailModal
               <div className="modal-field-grid">
                 <div>
                   <p className="field-label">First Name</p>
-                  <p className="field-value">{wizard.firstName}</p>
+                  <p className="field-value">{wizard?.firstName ||" unknown "}</p>
                 </div>
                 <div>
                   <p className="field-label">Last Name</p>
-                  <p className="field-value">{wizard.lastName}</p>
+                  <p className="field-value">{wizard?.lastName ||" unknown "}</p>
                 </div>
               </div>
             </div>
@@ -116,7 +117,7 @@ export default function WizardDetailModal({ wizard, onClose }: WizardDetailModal
         <div className="modal-footer">
           <button className="modal-close-btn" onClick={onClose}>Close</button>
           <button className="modal-edit-btn">
-            <i className="fas fa-pen" /> Edit Record
+            <FontAwesomeIcon icon={faPen} /> Edit Record
           </button>
         </div>
         </div>
