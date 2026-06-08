@@ -1,37 +1,33 @@
 "use client";
-
+import { Wizard } from "../../types/types";
+import { useEffect } from "react";
 import { faFlask, faSyringe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 
-type Elixir = {
-  name: string;
-  inventory: string;
-};
 
-type Wizard = {
-  id: string;
-  firstName: string;
-  lastName: string;
-  status: string;
-  specialty: string;
-  badges: { label: string; type: string }[];
-  elixirs: Elixir[];
-  avatarUrl?: string;
-};
-
-type Props = {
+interface WizardDetailModalProps {
   wizard: Wizard | null;
   onClose: () => void;
-};
+}
 
-const badgeClass: Record<string, string> = {
-  gold:   "badge-gold",
-  purple: "badge-purple",
-  muted:  "badge-muted",
-};
 
-export default function WizardDetailModal({ wizard, onClose }: Props) {
+
+export default function WizardDetailModal({ wizard, onClose }: WizardDetailModalProps) {
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    if (wizard) {
+      document.addEventListener("keydown", handleKey);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [wizard, onClose]);
+
   if (!wizard) return null;
 
   return (
@@ -39,9 +35,12 @@ export default function WizardDetailModal({ wizard, onClose }: Props) {
       {/* Backdrop */}
       <div className="modal-backdrop" onClick={onClose} />
 
-      {/* Modal */}
-      <div className="modal-card">
 
+      {/* Modal */}
+      <div
+        className="modal-card"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
         <div className="modal-header">
           <div>
@@ -54,10 +53,9 @@ export default function WizardDetailModal({ wizard, onClose }: Props) {
             <p className="modal-label">Registry ID</p>
             <span className="modal-id">{wizard.id}</span>
           </div>
-        </div>
 
-        {/* Body */}
-        <div className="modal-body">
+        </div>
+         <div className="modal-body">
 
           {/* Avatar + Info */}
           <div className="modal-info-row">
@@ -81,27 +79,8 @@ export default function WizardDetailModal({ wizard, onClose }: Props) {
                   <p className="field-label">Last Name</p>
                   <p className="field-value">{wizard.lastName}</p>
                 </div>
-                <div>
-                  <p className="field-label">Registry Status</p>
-                  <p className="field-status gold">
-                    <span className="status-dot" /> {wizard.status || "Unkown"} 
-                  </p>
-                </div>
-                <div>
-                  <p className="field-label">Primary Specialty</p>
-                  <p className="field-value">{wizard.specialty}</p>
-                </div>
               </div>
             </div>
-          </div>
-
-          {/* Badges */}
-          <div className="modal-badges">
-            {wizard.badges.map((b) => (
-              <span key={b.label} className={`badge ${badgeClass[b.type] ?? "badge-muted"}`}>
-                {b.label}
-              </span>
-            ))}
           </div>
 
           {/* Elixirs */}
@@ -109,30 +88,39 @@ export default function WizardDetailModal({ wizard, onClose }: Props) {
             <p className="modal-section-title">
               <FontAwesomeIcon icon={faFlask} /> Associated Elixirs
             </p>
-            <div className="modal-elixirs">
-              {wizard.elixirs.map((e) => (
-                <div className="elixir-row" key={e.name}>
-                  <div className="elixir-icon">
+          <div className="modal-elixirs">
+            {wizard.elixirs.length === 0 ? (
+              <div
+              >
+                No elixirs recorded
+              </div>
+            ) : (
+              wizard.elixirs.map((e) => (
+                <div className="elixir-row" key={e.id}>
+                  <div className="elixir-icon" style={{ color: "#fff" }}>
                     <FontAwesomeIcon icon={faSyringe} />
                   </div>
+
                   <div className="elixir-info">
                     <p className="elixir-name">{e.name}</p>
-                    <p className="elixir-inv">Inventory: {e.inventory}</p>
+                    <p className="elixir-inv">
+                      Inventory: {e.id}
+                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
+              ))
+            )}
           </div>
         </div>
-
-        {/* Footer */}
+                {/* Footer */}
         <div className="modal-footer">
           <button className="modal-close-btn" onClick={onClose}>Close</button>
           <button className="modal-edit-btn">
             <i className="fas fa-pen" /> Edit Record
           </button>
         </div>
-      </div>
+        </div>
+        </div>
     </>
   );
 }

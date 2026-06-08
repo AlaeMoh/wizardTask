@@ -4,6 +4,7 @@ import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Topbar from "@/components/layout/Topbar";
+import { QueryProvider } from "@/provider/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,8 +32,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-                <Topbar />                          
+                <QueryProvider>                         
+
+                <Topbar /> 
         {children}
+        </QueryProvider>
         </body>
     </html>
   );

@@ -1,7 +1,8 @@
 import StatCards from "@/components/dashboard/StatCard";
 import SpecialtyDonutChart from "@/components/dashboard/SpecialtyDonutChart";
-import WizardTable from "@/components/wizards/WizardTable";
+
 import Registry from "@/components/dashboard/Registry";
+import WizardTable from "@/components/wizards/WizardTable";
 
 export default function DashboardPage() {
   return (

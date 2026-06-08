@@ -1,4 +1,6 @@
+/* eslint-disable react/jsx-no-undef */
 "use client"
+import Avatar from '@mui/material/Avatar';
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell, faUser } from '@fortawesome/free-regular-svg-icons'
@@ -12,13 +14,13 @@ export default function Topbar() {
   return (
     <div className='nav d-flex pt-3 bgmain justify-content-between'>
         <div className="logo">
-            <h5 className='ps-5'>Wizarding Registry</h5>
+            <h5 className='ps-5 logo'>Wizarding Registry</h5>
         </div>
         <div className="search">
           <input
             type="text"
             className="input"
-            placeholder="Search items..."
+            placeholder="Scrying records.."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -33,7 +35,8 @@ export default function Topbar() {
         <div className="icons d-flex me-3 pb-3 ">
         <FontAwesomeIcon icon={faBell} />
         <FontAwesomeIcon icon={faGear} />
-        <FontAwesomeIcon icon={faUser} />
+        <Avatar alt="Remy Sharp" src="icon.jpg" />
+
 
       </div>
     </div>
