@@ -10,7 +10,6 @@ import {
   Cell,
 } from "recharts";
 
-
 const data = [
   { phase: "", value: 340 },
   { phase: "", value: 210 },
