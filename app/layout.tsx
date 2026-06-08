@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 import Topbar from "@/components/layout/Topbar";
 import { QueryProvider } from "@/provider/providers";
 
@@ -31,12 +31,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-                <QueryProvider>                         
-
-                <Topbar /> 
-        {children}
+        <QueryProvider>
+          <Topbar />
+          {children}
         </QueryProvider>
-        </body>
+      </body>
     </html>
   );
 }

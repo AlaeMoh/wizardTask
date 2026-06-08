@@ -11,11 +11,10 @@ async function fetchAllWizards(): Promise<Wizard[]> {
 
 export function useWizards(search: string) {
   return useQuery<Wizard[]>({
-
-    queryKey: ["wizards"], 
+    queryKey: ["wizards"],
     queryFn: fetchAllWizards,
-    staleTime: 10 * 60 * 1000, 
-    
+    staleTime: 10 * 60 * 1000,
+
     select: (wizards) => {
       const cleanSearch = search.trim().toLowerCase();
       if (!cleanSearch) return wizards;
@@ -23,7 +22,7 @@ export function useWizards(search: string) {
       return wizards.filter((wizard) => {
         const firstName = wizard.firstName?.toLowerCase() || "";
         const lastName = wizard.lastName?.toLowerCase() || "";
-        
+
         const combinedName = `${firstName} ${lastName}`.trim();
 
         return (

@@ -1,11 +1,11 @@
-import React from 'react'
-import "../../styles/styles.css"
+import React from "react";
+import "../../styles/styles.css";
 
 const stats = [
   {
     label: "TOTAL REGISTERED WIZARDS",
     value: "1,248",
-    valueType: "purple", 
+    valueType: "purple",
     change: "↑ +14% from last moon",
     changeType: "gold",
   },
@@ -27,7 +27,7 @@ const stats = [
 
 export default function StatCard() {
   return (
-    <div className='bgmain cards container-fluid'>
+    <div className="bgmain cards container-fluid">
       <div className="header grey mb-4">
         <h3>Wizarding Registry Dashboard</h3>
         <p>Overseeing the mystical equilibrium across all magical realms.</p>
@@ -45,10 +45,10 @@ export default function StatCard() {
                 valueType === "danger"
                   ? "text-danger"
                   : valueType === "gold"
-                  ? "text-gold"
-                  : valueType === "purple"
-                  ? "text-purple"
-                  : ""
+                    ? "text-gold"
+                    : valueType === "purple"
+                      ? "text-purple"
+                      : ""
               }`}
             >
               {value}
@@ -56,9 +56,7 @@ export default function StatCard() {
 
             <div
               className={`stat-change ${
-                changeType === "danger"
-                  ? "text-danger-custom"
-                  : "text-gold"
+                changeType === "danger" ? "text-danger-custom" : "text-gold"
               }`}
             >
               {change}
@@ -67,5 +65,5 @@ export default function StatCard() {
         ))}
       </div>
     </div>
-  )
+  );
 }

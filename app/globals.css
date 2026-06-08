@@ -1,30 +1,29 @@
 @import "tailwindcss";
 
 :root {
-
-  --mainbgroung: #0D1C2D;
-  --mainyellow: #FFB95F;
-  --lighterbg: #1C2B3C80;
-  --fontcolor:#D4E4FA;
-  --simoncolor:#FFB4AB;
-  --lightergrey:#D0BCFF;
-  --midgrey:#273647;
-   --sidebar-width:  220px;
-  --topbar-height:  60px;
-  --bg-main:        #0b0d1a;
-  --bg-surface:     #111427;
-  --bg-card:        #161929;
-  --bg-hover:       #1e2235;
-  --border:         rgba(255,255,255,0.07);
-  --gold:           #c9a84c;
-  --gold-light:     #e8c97a;
-  --purple:         #D0BCFF33;
-  --text-primary:   #e8eaf6;
+  --mainbgroung: #0d1c2d;
+  --mainyellow: #ffb95f;
+  --lighterbg: #1c2b3c80;
+  --fontcolor: #d4e4fa;
+  --simoncolor: #ffb4ab;
+  --lightergrey: #d0bcff;
+  --midgrey: #273647;
+  --sidebar-width: 220px;
+  --topbar-height: 60px;
+  --bg-main: #0b0d1a;
+  --bg-surface: #111427;
+  --bg-card: #161929;
+  --bg-hover: #1e2235;
+  --border: rgba(255, 255, 255, 0.07);
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --purple: #d0bcff33;
+  --text-primary: #e8eaf6;
   --text-secondary: #7a82a8;
-  --text-muted:     #4a5280;
-  --danger:         #e05c5c;
-  --sidebar-width:  220px;
-  --topbar-height:  60px;
+  --text-muted: #4a5280;
+  --danger: #e05c5c;
+  --sidebar-width: 220px;
+  --topbar-height: 60px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,11 +39,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-.containerall{
+.containerall {
   background: var(--mainbgroung);
 }
-
 
 .dashboard-layout {
   display: flex;
@@ -60,12 +57,10 @@ body {
   overflow-y: auto;
 }
 
-
 @media screen and (max-width: 992px) {
   .dashboard-content {
     width: calc(100% - 200px);
   }
-
 }
 @media screen and (max-width: 768px) {
   .dashboard-layout {
@@ -76,35 +71,30 @@ body {
     width: 100%;
     padding: 1rem;
   }
-    .charts-row{
-        flex-direction: column;
-
-
+  .charts-row {
+    flex-direction: column;
   }
 }
 
-.logo{
-font-family: Manrope;
-font-weight: 700;
-font-style: Bold;
-font-size: 24px;
-line-height: 32px;
-letter-spacing: 0px;
-vertical-align: middle;
-
+.logo {
+  font-family: Manrope;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  vertical-align: middle;
 }
 
-
-.ministry{
- font-family: Manrope;
-font-weight: 500;
-font-style: Medium;
-font-size: 12px;
-line-height: 16px;
-letter-spacing: 0.6px;
-vertical-align: middle;
-
+.ministry {
+  font-family: Manrope;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  vertical-align: middle;
 }
- .text-purple{
-  color:var(--text-secondary)!important;
- }
+.text-purple {
+  color: var(--text-secondary) !important;
+}

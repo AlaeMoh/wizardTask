@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   BarChart,
   Bar,
@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
+
 
 const data = [
   { phase: "", value: 340 },
@@ -40,7 +41,7 @@ const CustomTooltip = ({ active, payload }: any) => {
           fontFamily: "'DM Sans', sans-serif",
         }}
       >
-        {payload[0].value.toLocaleString()} 
+        {payload[0].value.toLocaleString()}
       </div>
     );
   }

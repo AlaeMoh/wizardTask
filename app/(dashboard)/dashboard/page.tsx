@@ -7,15 +7,14 @@ import WizardTable from "@/components/wizards/WizardTable";
 export default function DashboardPage() {
   return (
     <>
-
       {/* Stat Cards */}
       <StatCards />
 
       {/* Charts */}
       <div className="charts-row">
-        <Registry/>
-        
-        <SpecialtyDonutChart /> 
+        <Registry />
+
+        <SpecialtyDonutChart />
       </div>
 
       {/* Wizard Table */}

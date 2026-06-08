@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 const data = [
@@ -71,7 +71,9 @@ export default function Donut() {
             gap: "1rem",
           }}
         >
-          <div style={{ position: "relative", width: "120px", height: "120px" }}>
+          <div
+            style={{ position: "relative", width: "120px", height: "120px" }}
+          >
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 {/* Background ring */}
